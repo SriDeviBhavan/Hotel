@@ -1,0 +1,126 @@
+/* style.css for Sri Devi Bhavan Website */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #fff8e1;
+  color: #4b1e0b;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f8d56b;
+  padding: 20px 0;
+}
+
+.logo-section {
+  text-align: center;
+}
+
+.logo-section img.logo {
+  max-width: 180px;
+}
+
+.logo-section h1 {
+  margin: 10px 0 5px;
+  font-size: 2.4em;
+  color: #6e1414;
+}
+
+.logo-section p.tagline {
+  margin: 0;
+  font-size: 1em;
+  color: #4b1e0b;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  background: url('hero-bg.jpg') no-repeat center/cover;
+  color: #6e1414;
+}
+
+.hero h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero .menu-btn {
+  background-color: #6e1414;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.gallery h3,
+.visit h3,
+.review h3 {
+  text-align: center;
+  font-size: 1.8em;
+  color: #6e1414;
+  margin-bottom: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.visit {
+  background-color: #f8f0e3;
+}
+
+.visit p {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.visit iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+}
+
+.review {
+  text-align: center;
+}
+
+.review p {
+  font-size: 1em;
+}
+
+.review img.qr-code {
+  margin-top: 10px;
+  width: 150px;
+}
+
+footer {
+  background-color: #6e1414;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+}
+
+@media (max-width: 600px) {
+  .hero h2 { font-size: 1.5em; }
+  .hero p { font-size: 1em; }
+}
