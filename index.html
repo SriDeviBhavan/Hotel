@@ -23,24 +23,28 @@
             background-color: #8B0000; /* Maroon */
             color: #FFFFFF;
             text-align: center;
-            padding: 1rem; /* Reduced padding for mobile */
+            padding: 1rem;
             position: relative;
             animation: fadeIn 2s ease-in;
-            min-height: 120px; /* Increased to fit larger logo */
+            min-height: 180px; /* Increased for better logo display */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         header img.logo {
-            max-width: 250px; /* Increased from 120px to fit 1024x1024 */
-            max-height: 250px; /* Increased from 80px to match aspect ratio */
-            width: auto; /* Maintain aspect ratio */
-            height: auto; /* Maintain aspect ratio */
+            width: 120px; /* Fixed width for consistency */
+            height: 120px; /* Fixed height to maintain square aspect ratio */
+            object-fit: contain; /* Ensures the entire logo is visible */
             animation: bounceRotate 2s infinite;
+            margin-bottom: 0.5rem;
         }
         header h1 {
-            font-size: 1.8rem; /* Reduced from 2.5rem */
+            font-size: 1.8rem;
             margin-top: 0.5rem;
         }
         header p {
-            font-size: 1rem; /* Reduced from 1.2rem */
+            font-size: 1rem;
         }
         nav {
             position: fixed;
@@ -226,12 +230,100 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+        
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            header img.logo { max-width: 150px; max-height: 150px; } /* Increased for mobile */
-            header { padding: 0.5rem; min-height: 90px; } /* Adjusted height on mobile */
-            .menu-items { height: 450px; }
-            .menu-items img { height: 200px; }
-            .contact .cta-button { padding: 0.6rem 1.5rem; font-size: 1rem; }
+            header {
+                min-height: 140px; /* Reduced height for mobile */
+                padding: 0.5rem;
+            }
+            
+            header img.logo {
+                width: 80px; /* Smaller logo on mobile */
+                height: 80px; /* Maintain square aspect ratio */
+            }
+            
+            header h1 {
+                font-size: 1.4rem; /* Smaller title on mobile */
+            }
+            
+            header p {
+                font-size: 0.9rem; /* Smaller tagline on mobile */
+            }
+            
+            nav ul {
+                padding: 0.5rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+            
+            .menu-items { 
+                height: 450px; 
+            }
+            
+            .menu-items img { 
+                height: 200px; 
+            }
+            
+            .contact .cta-button { 
+                padding: 0.6rem 1.5rem; 
+                font-size: 1rem; 
+            }
+        }
+        
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            header {
+                min-height: 120px;
+                padding: 0.3rem;
+            }
+            
+            header img.logo {
+                width: 70px; /* Even smaller logo on very small screens */
+                height: 70px;
+            }
+            
+            header h1 {
+                font-size: 1.2rem;
+            }
+            
+            header p {
+                font-size: 0.8rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.3rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Large screens */
+        @media (min-width: 1200px) {
+            header {
+                min-height: 200px;
+            }
+            
+            header img.logo {
+                width: 150px; /* Larger logo on big screens */
+                height: 150px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
         }
     </style>
     <script>
@@ -297,7 +389,7 @@
     <section class="reviews" id="reviews">
         <h2>Customer Reviews</h2>
         <div class="review-card">
-            <p>"Best dosa I’ve ever had—crisp and perfect with sambar! ⭐⭐⭐⭐⭐" - Priya M.</p>
+            <p>"Best dosa I've ever had—crisp and perfect with sambar! ⭐⭐⭐⭐⭐" - Priya M.</p>
         </div>
         <div class="review-card">
             <p>"The idli-vada combo is a must-try, authentic and delicious! ⭐⭐⭐⭐⭐" - Anil K.</p>
