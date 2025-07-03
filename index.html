@@ -1,141 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sri Devi Bhavan</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Georgia', serif; background:linear-gradient(135deg,#fff8e1 0%,#ffeaa7 100%); color:#4b1e0b; overflow-x:hidden; }
-    header { background:linear-gradient(135deg,#f8d56b 0%,#fdcb6e 100%); padding:20px 0; position:sticky; top:0; z-index:1000; }
-    .logo-section { text-align:center; animation:fadeInDown 1s ease-out; }
-    .logo { width:120px; height:120px; border-radius:50%; border:4px solid #6e1414; box-shadow:0 8px 30px rgba(110,20,20,0.3); transition:transform .3s; }
-    .logo:hover { transform:scale(1.05) rotate(5deg); }
-    .logo-section h1 { font-size:2.8em; color:#6e1414; text-shadow:2px 2px 4px rgba(0,0,0,0.1); margin:15px 0 5px; }
-    .tagline { font-size:1.1em; color:#4b1e0b; font-style:italic; opacity:.9; }
-    nav.tabs { display:flex; justify-content:center; gap:10px; padding:0 20px; }
-    .tablink { background:rgba(110,20,20,0.1); color:#6e1414; padding:12px 25px; text-decoration:none; border-radius:25px; font-weight:bold; transition:all .3s; }
-    .tablink.active, .tablink:hover { background:#6e1414; color:#fff; transform:translateY(-2px); }
-    main { max-width:1200px; margin:auto; padding:0 20px; }
-    .tabcontent { display:none; animation:fadeIn .5s ease-in; padding:40px 0; }
-    .tabcontent.active { display:block; }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
-    @keyframes fadeInDown { from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);} }
-    .menu-image-grid { overflow:hidden; position:relative; background:rgba(248,213,107,0.1); padding:20px; border-radius:15px; }
-    .scroll-track { display:flex; gap:15px; animation:scrollLeft 20s linear infinite; }
-    .menu-image-grid img { flex:0 0 auto; width:200px; height:auto; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
-    @keyframes scrollLeft { 0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
-    .reviews { background:rgba(248,213,107,0.1); padding:40px; border-radius:15px; }
-    .review-card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); margin-bottom:20px; }
-    .review-card p { margin-bottom:10px; }
-    .reviewer { font-weight:bold; color:#6e1414; }
-    .digital-menu-btn { display:block; margin:20px auto; padding:12px 30px; background:linear-gradient(135deg,#6e1414 0%,#8b1e1e 100%); color:#fff; border-radius:30px; text-decoration:none; font-weight:bold; }
-    .banana-leaf { position:fixed; top:-100px; width:40px; opacity:0.7; animation:fall 12s linear infinite; z-index:0; }
-    @keyframes fall {
-      0% { transform:translateY(-100px) rotate(0deg); opacity:0.7; }
-      100% { transform:translateY(110vh) rotate(360deg); opacity:0.3; }
-    }
-    footer { text-align:center; padding:20px 10px; font-size:0.9em; color:#6e1414; background:rgba(248,213,107,0.3); margin-top:40px; border-top:1px solid #e3b04b; line-height:1.6; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Devi Bhavan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #FFC107; /* Mustard yellow */
+            background-size: cover;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        header {
+            background-color: #8B0000; /* Maroon */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            animation: fadeIn 2s ease-in;
+        }
+        header img.logo {
+            max-width: 180px;
+            animation: bounceRotate 2s infinite;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-top: 1rem;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #8B0000;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #FFC107;
+            animation: pulse 0.5s;
+        }
+        section {
+            padding: 4rem 1rem;
+            min-height: 100vh;
+            scroll-margin-top: 70px;
+            display: none; /* Hide all sections by default */
+        }
+        .active-section {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+        .home {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9); /* White overlay */
+            border: 2px solid #228B22; /* Green */
+            border-radius: 10px;
+            margin: 1rem;
+        }
+        .home h2 {
+            font-size: 2rem;
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+        .home p {
+            max-width: 800px;
+            margin: 1rem auto;
+            font-size: 1.1rem;
+        }
+        .home .bio-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+            border-radius: 10px;
+            border: 2px solid #228B22;
+        }
+        .menu {
+            text-align: center;
+            background: #8B0000;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        .menu h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .menu-items {
+            position: relative;
+            height: 600px; /* Visible container height */
+            overflow: hidden;
+        }
+        .menu-items-inner {
+            display: flex;
+            flex-direction: column;
+            animation: scrollVertical 20s linear infinite;
+            position: absolute;
+            width: 100%;
+        }
+        .menu-items img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain; /* Changed from cover to contain to show full images */
+            background-color: #FFFFFF; /* White background for better visibility */
+            border-radius: 10px;
+            border: 2px solid #FFC107;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        .menu a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #228B22;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+        .menu a:hover {
+            transform: scale(1.1);
+            background: #8B0000;
+        }
+        .reviews {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #228B22;
+            border-radius: 10px;
+            margin: 1rem;
+        }
+        .reviews h2 {
+            font-size: 2rem;
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+        .review-card {
+            max-width: 600px;
+            margin: 1rem auto;
+            padding: 1rem;
+            background: #FFFFFF;
+            border: 1px solid #228B22;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .contact {
+            text-align: center;
+            background: #8B0000;
+            color: #FFFFFF;
+        }
+        .contact h2 {
+            font-size: 2rem;
+        }
+        .contact p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        .contact .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #228B22;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        .contact .cta-button:hover {
+            transform: scale(1.1);
+            background: #8B0000;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #8B0000;
+            color: #FFFFFF;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scrollVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(calc(-100% + 1500px)); } /* Adjusted for 6 images at 250px each, plus margins */
+        }
+        @keyframes bounceRotate {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            header img.logo { max-width: 120px; }
+            .menu-items { height: 450px; }
+            .menu-items img { height: 200px; }
+            .contact .cta-button { padding: 0.6rem 1.5rem; font-size: 1rem; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            // Show home by default
+            document.getElementById('home').classList.add('active-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    sections.forEach(section => section.classList.remove('active-section'));
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active-section');
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        console.log('Target section not found:', targetId);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-  <header>
-    <div class="logo-section">
-      <img src="logo1.png" alt="Sri Devi Bhavan Logo" class="logo" />
-      <h1>Sri Devi Bhavan</h1>
-      <p class="tagline">Since 1953 | Tradition Served Daily</p>
-    </div>
-    <nav class="tabs">
-      <a href="#home" class="tablink active" onclick="openTab(event,'home')">Home</a>
-      <a href="#menu" class="tablink" onclick="openTab(event,'menu')">Menu</a>
-      <a href="#reviews" class="tablink" onclick="openTab(event,'reviews')">Reviews</a>
-      <a href="#contact" class="tablink" onclick="openTab(event,'contact')">Contact Us</a>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
     </nav>
-  </header>
-  <main>
-    <!-- Home -->
-    <section id="home" class="tabcontent active">
-      <!-- Falling Leaves -->
-      <img src="logo1.png" class="banana-leaf" style="left:5%; animation-delay:0s;">
-      <img src="logo1.png" class="banana-leaf" style="left:25%; animation-delay:3s;">
-      <img src="logo1.png" class="banana-leaf" style="left:50%; animation-delay:1.5s;">
-      <img src="logo1.png" class="banana-leaf" style="left:75%; animation-delay:2.5s;">
-      <div style="text-align:center; padding:40px 20px 10px;">
-        <h2 style="font-size:1.8em; margin-bottom:10px;">Welcome to Sri Devi Bhavan</h2>
-        <p style="font-size:1.1em; color:#6e1414;">Experience authentic South Indian flavors since 1953. From our banana leaf meals to filter coffee, every bite is a tradition.</p>
-      </div>
-      <div style="max-width:800px; margin:20px auto; font-size:1em; line-height:1.5; color:#553;">
-        Nestled in the heart of Devanahalli since 1953, Sri Devi Bhavan is more than a restaurant—it's a living legacy of authentic recipes passed down through generations. Every banana leaf meal we serve carries the aroma of home and the promise of unforgettable taste.
-        <br/><br/>
-        Join us where tradition meets flavor, and every guest is treated like family.
-      </div>
+    <header>
+        <img src="logo1.jpg" alt="Sri Devi Bhavan Logo" class="logo">
+        <h1>Sri Devi Bhavan</h1>
+        <p>Since 1953 | Tradition Served Daily</p>
+    </header>
+    <section class="home" id="home">
+        <h2>About Us</h2>
+        <p>Welcome to Sri Devi Bhavan, a culinary legacy in Devanahalli since 1953. We pride ourselves on authentic South Indian flavors passed down through generations, served with love on banana leaves alongside aromatic filter coffee. Our mission is to keep traditions alive, offering a warm, family-like experience with every meal.</p>
+        <img src="your-image.png" alt="Image below Bio" class="bio-image">
     </section>
-    <!-- Menu Gallery -->
-    <section id="menu" class="tabcontent">
-      <h3 style="text-align:center; margin-bottom:20px;">Our Menu</h3>
-      <a href="https://sridevibhavan.github.io/MENUDIGITAL/" target="_blank" class="digital-menu-btn">View Full Digital Menu</a>
-      <h4 style="text-align:center; margin:20px 0;">Signature Dishes</h4>
-      <div class="menu-image-grid">
-        <div class="scroll-track" id="gallery"></div>
-      </div>
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-items-inner">
+                <img src="1vada.jpg" alt="Vada">
+                <img src="3idli.jpg" alt="Idli">
+                <img src="butter masala dosa.jpg" alt="Butter Masala Dosa">
+                <img src="coffee.jpg" alt="Filter Coffee">
+                <img src="holige meal.jpg" alt="Holige Meal">
+                <img src="masala dosa.jpg" alt="Masala Dosa">
+                <img src="1vada.jpg" alt="Vada"> <!-- Duplicate for seamless loop -->
+                <img src="3idli.jpg" alt="Idli">
+            </div>
+        </div>
+        <a href="https://sridevibhavan.github.io/MENUDIGITAL/" target="_blank">View Full Digital Menu</a>
     </section>
-    <!-- Reviews -->
-    <section id="reviews" class="tabcontent">
-      <h3 style="text-align:center; margin-bottom:20px;">What Our Customers Say</h3>
-      <div class="reviews">
+    <section class="reviews" id="reviews">
+        <h2>Customer Reviews</h2>
         <div class="review-card">
-          <p>“Best filter coffee in town—truly energizing!”</p>
-          <p class="reviewer">– Anaya K.</p>
+            <p>"Best dosa I’ve ever had—crisp and perfect with sambar! ⭐⭐⭐⭐⭐" - Priya M.</p>
         </div>
         <div class="review-card">
-          <p>“The Shavige Bath brought back childhood memories. Delicious!”</p>
-          <p class="reviewer">– Ravi S.</p>
+            <p>"The idli-vada combo is a must-try, authentic and delicious! ⭐⭐⭐⭐⭐" - Anil K.</p>
         </div>
         <div class="review-card">
-          <p>“Weekend ritual: idli, vada, and endless filter coffee!”</p>
-          <p class="reviewer">– Meera P.</p>
+            <p>"Amazing filter coffee and service—feels like home! ⭐⭐⭐⭐⭐" - Lakshmi R.</p>
         </div>
-      </div>
-      <div style="text-align:center; margin-top:20px;">
-        <h4>Scan for More Reviews & Updates</h4>
-        <img src="qr-code.png" alt="Google Review QR Code" style="width:150px; height:auto;" />
-      </div>
+        <div class="review-card">
+            <p>"Catering for my event was flawless, food was outstanding! ⭐⭐⭐⭐⭐" - Sanjay P.</p>
+        </div>
+        <div class="review-card">
+            <p>"Love the holige meal, true South Indian taste! ⭐⭐⭐⭐⭐" - Meena S.</p>
+        </div>
     </section>
-    <!-- Contact -->
-    <section id="contact" class="tabcontent">
-      <h3 style="text-align:center; margin-bottom:20px;">Contact Us</h3>
-      <p style="text-align:center;">📍 Sri Devi Bhavan Hotel<br/>B.B Road Opp Old Bus Stand<br/>Devanahalli – 562110</p>
-      <p style="text-align:center;">📞 99724 63835<br>📞 99727 31953</p>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Sri Devi Bhavan Hotel, B.B Road Opp Old Bus Stand, Devanahalli – 562110</p>
+        <p>📞 99724 63835 | 99727 31953</p>
+        <a href="https://wa.me/9972463835?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Sri%20Devi%20Bhavan" class="cta-button" target="_blank">WhatsApp Us</a>
+        <a href="tel:9972463835" class="cta-button">Call Us</a>
     </section>
-  </main>
-  <footer>
-    <p>🌿 Pure Veg Restaurant<br/>
-    © 2025 Sri Devi Bhavan. All rights reserved.</p>
-  </footer>
-  <script>
-    const imageFiles = [
-      '1vada.jpg','3idli.jpg','aloo paratha.jpg','butter masala dosa.jpg','carrot halwa.jpg',
-      'chow chow bath.jpg','coffee.jpg','coffee1.jpg','crispy paneer.jpg','curd vada.jpg',
-      'Dal khichdi.jpg','dry fruit milkshake.jpg','fried rice.jpg','ghe onion dossa.jpg',
-      'ghee pudi thatte.jpg','Ghee rice.jpg','ghee thate idli.jpg','grape juice.jpg','green pista.jpg',
-      'holige meal.jpg','idli vada.jpg','idli2.jpg','kesari bath.jpg','kesari falooda.jpg',
-      'khara bath.jpg','lime juice.jpg','mangalore bajji.jpg','mango.jpg','masala dosa.jpg',
-      'mbuns.jpg','mint lime juice.jpg','moosambi.jpg','nannari.jpg','neer dosa.jpg',
-      'noodles.jpg','onion.jpg','oreo milkshake.jpg','paneer butter masala.jpg','paneer crispy.jpg',
-      'paneer masala dosa.jpg','paneer rice.jpg','papaya juice.jpg','pineapple juice.jpg',
-      'plain dosa.jpg','pongal.jpg','poori.jpg'
-    ];
-    const gallery = document.getElementById('gallery');
-    imageFiles.concat(imageFiles).forEach(name => {
-      const img = document.createElement('img'); img.src = name; img.alt = name.replace(/\.[^/.]+$/,''); gallery.appendChild(img);
-    });
-    function openTab(evt, tabName) {
-      document.querySelectorAll('.tabcontent').forEach(tc => tc.classList.remove('active'));
-      document.querySelectorAll('.tablink').forEach(tl => tl.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-      evt && evt.currentTarget.classList.add('active');
-    }
-    window.onload = () => openTab(null,'home');
-  </script>
+    <footer>
+        <p>All rights reserved. Sri Devi Bhavan -1953</p>
+    </footer>
 </body>
 </html>
