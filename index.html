@@ -26,9 +26,13 @@
             padding: 1rem; /* Reduced padding for mobile */
             position: relative;
             animation: fadeIn 2s ease-in;
+            min-height: 120px; /* Increased to fit larger logo */
         }
         header img.logo {
-            max-width: 120px; /* Reduced from 180px */
+            max-width: 200px; /* Increased from 120px to fit 1024x1024 */
+            max-height: 200px; /* Increased from 80px to match aspect ratio */
+            width: auto; /* Maintain aspect ratio */
+            height: auto; /* Maintain aspect ratio */
             animation: bounceRotate 2s infinite;
         }
         header h1 {
@@ -223,8 +227,8 @@
             100% { transform: scale(1); }
         }
         @media (max-width: 768px) {
-            header img.logo { max-width: 100px; } /* Further reduced for smaller screens */
-            header { padding: 0.5rem; } /* Even less padding on mobile */
+            header img.logo { max-width: 150px; max-height: 150px; } /* Increased for mobile */
+            header { padding: 0.5rem; min-height: 90px; } /* Adjusted height on mobile */
             .menu-items { height: 450px; }
             .menu-items img { height: 200px; }
             .contact .cta-button { padding: 0.6rem 1.5rem; font-size: 1rem; }
@@ -264,4 +268,59 @@
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
-   
+    <header>
+        <img src="logo1.jpg" alt="Sri Devi Bhavan Logo" class="logo">
+        <h1>Sri Devi Bhavan</h1>
+        <p>Since 1953 | Tradition Served Daily</p>
+    </header>
+    <section class="home" id="home">
+        <h2>About Us</h2>
+        <p>Welcome to Sri Devi Bhavan, a culinary legacy in Devanahalli since 1953. We pride ourselves on authentic South Indian flavors passed down through generations, served with love on banana leaves alongside aromatic filter coffee. Our mission is to keep traditions alive, offering a warm, family-like experience with every meal.</p>
+        <img src="your-image.jpg" alt="Image below Bio" class="bio-image">
+    </section>
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-items-inner">
+                <img src="1vada.jpg" alt="Vada">
+                <img src="3idli.jpg" alt="Idli">
+                <img src="butter masala dosa.jpg" alt="Butter Masala Dosa">
+                <img src="coffee.jpg" alt="Filter Coffee">
+                <img src="holige meal.jpg" alt="Holige Meal">
+                <img src="masala dosa.jpg" alt="Masala Dosa">
+                <img src="1vada.jpg" alt="Vada"> <!-- Duplicate for seamless loop -->
+                <img src="3idli.jpg" alt="Idli">
+            </div>
+        </div>
+        <a href="https://sridevibhavan.github.io/MENUDIGITAL/" target="_blank">View Full Digital Menu</a>
+    </section>
+    <section class="reviews" id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-card">
+            <p>"Best dosa I’ve ever had—crisp and perfect with sambar! ⭐⭐⭐⭐⭐" - Priya M.</p>
+        </div>
+        <div class="review-card">
+            <p>"The idli-vada combo is a must-try, authentic and delicious! ⭐⭐⭐⭐⭐" - Anil K.</p>
+        </div>
+        <div class="review-card">
+            <p>"Amazing filter coffee and service—feels like home! ⭐⭐⭐⭐⭐" - Lakshmi R.</p>
+        </div>
+        <div class="review-card">
+            <p>"Catering for my event was flawless, food was outstanding! ⭐⭐⭐⭐⭐" - Sanjay P.</p>
+        </div>
+        <div class="review-card">
+            <p>"Love the holige meal, true South Indian taste! ⭐⭐⭐⭐⭐" - Meena S.</p>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Sri Devi Bhavan Hotel, B.B Road Opp Old Bus Stand, Devanahalli – 562110</p>
+        <p>📞 99724 63835 | 99727 31953</p>
+        <a href="https://wa.me/9972463835?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Sri%20Devi%20Bhavan" class="cta-button" target="_blank">WhatsApp Us</a>
+        <a href="tel:9972463835" class="cta-button">Call Us</a>
+    </section>
+    <footer>
+        <p>All rights reserved. Sri Devi Bhavan -1953</p>
+    </footer>
+</body>
+</html>
